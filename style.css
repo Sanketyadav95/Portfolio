@@ -12,7 +12,7 @@
 }
 
 :root {
-    --navbar-background:#fff;
+    --navbar-background: #fff;
     --first--color: #6E57E0;
     --bg--color: #fdfdfd;
     --text--color: #333;
@@ -31,7 +31,7 @@
 .dark-mode {
     --primary-color: #0b061f;
     --secondary-color: #fff;
-    --navbar-background:#1A1A2E;
+    --navbar-background: #1A1A2E;
     --hover--box: #081b29;
     --contact--color: #333;
     --BlackToWhite--text: white;
@@ -144,7 +144,7 @@ body {
     animation: slideLeft 1s ease forwards;
     animation-delay: 3.3s;
 }
- 
+
 .theme-switch input {
     opacity: 0;
     width: 0;
@@ -170,7 +170,7 @@ body {
     width: 18px;
     left: 4px;
     bottom: 2px;
-    background-color:#fff;
+    background-color: #fff;
     transition: 0.3s;
     border-radius: 50%;
 }
@@ -236,7 +236,7 @@ section {
 
 
 .home-content h3 {
-   
+
     font-size: 36px;
     line-height: .3;
     opacity: 0;
@@ -245,14 +245,14 @@ section {
 }
 
 .home-content h1 {
-     
+
     font-size: 60px;
     font-weight: 700;
     margin-bottom: 10px;
-    background-image: linear-gradient(109.6deg,rgba(228,107,232,1) 11.2%,rgba(87,27,226,1) 96.7%);
+    background-image: linear-gradient(109.6deg, rgba(228, 107, 232, 1) 11.2%, rgba(87, 27, 226, 1) 96.7%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color:transparent;
+    color: transparent;
     opacity: 0;
     animation: slideRight 1s ease forwards;
     animation-delay: 1s;
@@ -742,41 +742,49 @@ section {
 }
 
 .path-2 {
-    animation: animate-path1 1s 1s linear forwards;
+    animation: animate-path2 1s 1s linear forwards;
 }
 
 .path-3 {
-    animation: animate-path1 1s 1s linear forwards;
+    animation: animate-path3 1s 1s linear forwards;
 }
 
 .path-4 {
-    animation: animate-path1 1s 1s linear forwards;
+    animation: animate-path4 1s 1s linear forwards;
 }
+
+/* 502 is the full circumference. 
+   stroke-dashoffset = 502 - (502 * percent)
+   85%: 502 - (502 * 0.85) = 75.3
+   80%: 502 - (502 * 0.80) = 100.4
+*/
 
 @keyframes animate-path1 {
     100% {
-        stroke-dashoffset: 50;
+        stroke-dashoffset: 75.3;
+        /* 85% */
     }
 }
 
-@keyframes animate-path12 {
+@keyframes animate-path2 {
     100% {
-        stroke-dashoffset: 175;
+        stroke-dashoffset: 100.4;
+        /* 80% */
     }
 }
 
-@keyframes animate-path1 {
+@keyframes animate-path3 {
     100% {
-        stroke-dashoffset: 125;
+        stroke-dashoffset: 50.2;
+        /* 90% */
     }
-
 }
 
-@keyframes animate-path1 {
+@keyframes animate-path4 {
     100% {
-        stroke-dashoffset: 75;
+        stroke-dashoffset: 75.3;
+        /* 85% */
     }
-
 }
 
 .radial-bar .percentage {
@@ -1163,10 +1171,7 @@ section {
         opacity: 1;
         transform: translateY(0px);
     }
-
 }
-
-
 
 /* BREAKPOINTS */
 @media (max-width: 1200px) {
@@ -1383,11 +1388,19 @@ section {
 
     .home .profession-container .overlay {
         position: fixed;
-        top: 70rem;
+        top: 50%;
         left: 50%;
-        right: 0;
-        transform: rotate(90deg) translate(-50%, 50%) scaleY(3);
-        border-width: 23.9rem;
+        width: 100vh;
+        /* Using viewport height for width to account for rotation */
+        height: 100vw;
+        /* Using viewport width for height to account for rotation */
+        transform: rotate(90deg) translate(-50%, -50%);
+        transform-origin: center;
+        border: none;
+        border-top: 475px solid var(--main-color);
+        border-right: 475px solid var(--main-color);
+        border-bottom: 475px solid var(--main-color);
+        border-left: 475px solid transparent;
     }
 
     .about {
