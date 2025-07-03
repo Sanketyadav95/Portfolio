@@ -12,6 +12,7 @@
 }
 
 :root {
+    --navbar-background:#fff;
     --first--color: #6E57E0;
     --bg--color: #fdfdfd;
     --text--color: #333;
@@ -30,6 +31,7 @@
 .dark-mode {
     --primary-color: #0b061f;
     --secondary-color: #fff;
+    --navbar-background:#1A1A2E;
     --hover--box: #081b29;
     --contact--color: #333;
     --BlackToWhite--text: white;
@@ -62,7 +64,7 @@ body {
 }
 
 .header.sticky {
-    background: #fff;
+    background: var(--navbar-background);
     box-shadow: 0 .1rem 1rem var(--shadow-color);
 }
 
@@ -106,7 +108,7 @@ body {
 }
 
 .header.sticky .navbar a {
-    color: var(--text--color);
+    color: var(--BlackToWhite--text);
 }
 
 .header.sticky .navbar a.active {
@@ -156,7 +158,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #fff;
+    background-color: #9f9d9d;
     transition: 0.3s;
     border-radius: 22px;
 }
@@ -168,7 +170,7 @@ body {
     width: 18px;
     left: 4px;
     bottom: 2px;
-    background-color: var(--secondary-color);
+    background-color:#fff;
     transition: 0.3s;
     border-radius: 50%;
 }
