@@ -39,19 +39,30 @@ window.onscroll = () => {
 
 
 /*============= Dark light mode  =====================*/
-const themeToggle = document.getElementById('theme-toggle');
+document.addEventListener('DOMContentLoaded', function () {
+    const themeToggle = document.getElementById('checkbox');
 
-function toggleTheme() {
-    if (themeToggle.checked) {
+    // Load saved theme on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        themeToggle.checked = true;
         document.documentElement.setAttribute('data-theme', 'dark');
         document.body.classList.add('dark-mode');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        document.body.classList.remove('dark-mode');
     }
-}
 
-themeToggle.addEventListener('change', toggleTheme);
+    // Theme switch logic
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+});
 
 
 /*============= Profile slide  =====================*/

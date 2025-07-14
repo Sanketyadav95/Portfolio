@@ -13,7 +13,7 @@
 
 <body>
     <header class="header">
-        <a href="#" class="logo">SYadav.</a>
+        <a href="#" class="logo">Sanket.</a>
 
 
         <!-- Navigation Menu -->
@@ -26,14 +26,10 @@
         </nav>
 
         <!-- Theme Toggle -->
-        <label class="theme-switch">
-            <input type="checkbox" id="theme-toggle">
-            <span class="slider"></span>
-        </label>
-
-
-
-
+        <div class="container">
+            <input type="checkbox" name="checkbox" id="checkbox" />
+            <label for="checkbox" class="label"> </label>
+        </div>
 
         <!-- Mobile Menu Toggle -->
         <div class="bx bx-menu" id="menu-icon"></div>
@@ -338,40 +334,61 @@
     </section>
 
     <!--Contact section design-->
-    <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me!</span></h2>
-
-        <form action="#">
-            <div class="input-box">
-                <input type="text" required>
-                <label>User name</label>
+     <section class="contact" id="contact">
+        <div class="content">
+            <h2> Contact <span>Me</span></h2>
+            <p>Thank you for visiting my portfolio! If you have any questions, project ideas, collaboration proposals,
+                or just want to say hello — I’d love to hear from you.</p>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon"><i class='bx bxs-map'></i></div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>Kongnoli,<br>Kavathe Mahankal,<br>Sangli</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class='bx bxs-phone'></i></div>
+                    <div class="text">
+                        <h3>Call Us</h3>
+                        <p>+91 9503108141
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon"><i class='bx bx-envelope'></i></div>
+                    <div class="text">
+                        <h3>Email Us</h3>
+                        <p>sanketyadav899@gmail.com
+                    </div>
+                </div>
             </div>
+            <div class="contactForm">
+                <form>
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        <input type="text" name="" required="required">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea required="required"></textarea>
+                        <span>Type your Message...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="Send" class="btn">
 
-            <div class="input-box">
-                <input type="text" required>
-                <label>Email</label>
+                    </div>
+                </form>
             </div>
+        </div>
 
-            <div class="input-box">
-                <input type="number" required>
-                <label>Mobile Number</label>
-            </div>
 
-            <div class="input-box">
-                <input type="text" required>
-                <label>Email Subject</label>
-            </div>
-
-            <div class="input-box">
-                <textarea cols="30" rows="10" required></textarea>
-                <label id="text-lable">Your Message</label>
-            </div>
-
-            <input type="submit" value="Send Message" class="btn">
-        </form>
     </section>
-
-
     <!--footer design-->
     <footer class="footer">
         <div class="footer-text">
@@ -387,6 +404,27 @@
 
     <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            emailjs.init("McQnqWBfDgvAc_UBL");  // 🟡 Replace with actual public key
+
+            document.getElementById("contact-form").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                emailjs.sendForm("service_9o0mjlk", "template_3i99pdm", this)
+                    .then(function () {
+                        alert("✅ Message sent successfully!");
+                        document.getElementById("contact-form").reset();
+                    }, function (error) {
+                        alert("❌ Failed to send message. " + JSON.stringify(error));
+                        console.error("EmailJS Error:", error);
+                    });
+            });
+        });
+    </script>
+
 
     <!--custom js-->
     <script src="script.js"></script>
